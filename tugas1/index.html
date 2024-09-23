@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-right span {
+            margin-right: 20px;
+        }
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1> </h1>
+        <div class="navbar-right">
+            <button onclick="showAlert('logout')">Log out</button>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li>Dashboard</li>
+                <li>Users</li>
+                <li>Settings</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>Daftar User</h1>
+            <button onclick="showModal('addUserModal')">Tambah User</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Nama</th>
+                        <th>NIM</th>
+                        <th>Prodi</th>
+                        <th>Kode Prodi</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ricky Primayuda Putra</td>
+                        <td>A11.2022.14486</td>
+                        <td>Teknik Informatika</td>
+                        <td>A11</td>
+                        <td>
+                            <button onclick="editUser(1)">Edit</button>
+                            <button onclick="deleteUser(1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Muhammad Rizky Ramadhan</td>
+                        <td>B11.2022.00312</td>
+                        <td>Manajemen</td>
+                        <td>B11</td>
+                        <td>
+                            <button onclick="editUser(2)">Edit</button>
+                            <button onclick="deleteUser(2)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Naufal Nabaul Choir</td>
+                        <td>B12.2022.00312</td>
+                        <td>Akuntasi</td>
+                        <td>B12</td>
+                        <td>
+                            <button onclick="editUser(3)">Edit</button>
+                            <button onclick="deleteUser(3)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editModal')">&times;</span>
+            <h2>Edit User</h2>
+            <form id="editForm">
+                <label for="editName">Nama :</label>
+                <input type="text" id="editName" name="editName" required>
+                <br>
+                <label for="editNIM">NIM :</label>
+                <input type="text" id="editNIM" name="editNIM" required>
+                <br>
+                <label for="prodi">Prodi :</label>
+                <select id="prodi" name="prodi" required>
+                    <option value="">Pilih prodi</option>
+                    <option value="1">Teknik Informatika</option>
+                    <option value="2">Manajemen</option>
+                    <option value="3">Akuntasi</option>
+                </select>
+                <br>
+                <label for="kodeProdi">Kode Prodi :</label>
+                <select id="kodeProdi" name="kodeProdi" required>
+                    <option value="">Pilih Kode Prodi</option>
+                    <option value="a11">A11</option>
+                    <option value="b11">B11</option>
+                    <option value="b12">B12</option>
+                </select>
+                <br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Apakah kamu yakin mau delete user ini ?</h2>
+            <button onclick="confirmUserDelete()">OK</button>
+            <button onclick="closeModal('deleteModal')">Cancel</button>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>User berhasil di delete!</h2>
+            <button onclick="closeModal('successModal')">Close</button>
+        </div>
+    </div>
+
+    <div id="successLogout" class="modal">
+        <div class="modal-content">
+            <h2>Anda berhasil logout</h2>
+            <button onclick="closeModal('successLogout')">Close</button>
+        </div>
+    </div>
+
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addUserModal')">&times;</span>
+            <h2>Tambah User</h2>
+            <form id="addUserForm">
+                <label for="addName">Nama :</label>
+                <input type="text" id="addName" name="addName" required>
+                <br>
+                <label for="addNIM">NIM :</label>
+                <input type="text" id="addNIM" name="addNIM" required>
+                <br>
+                <label for="addProdi">Prodi :</label>
+                <select id="prodi" name="prodi" required>
+                    <option value="">Pilih prodi</option>
+                    <option value="1">Teknik Informatika</option>
+                    <option value="2">Manajemen</option>
+                    <option value="3">Akuntasi</option>
+                </select>
+                <br>
+                <label for="kodeProdi">Kode Prodi :</label>
+                <select id="kodeProdi" name="kodeProdi" required>
+                    <option value="">Pilih Kode Prodi</option>
+                    <option value="a11">A11</option>
+                    <option value="b11">B11</option>
+                    <option value="b12">B12</option>
+                </select>
+                <br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function editUser(id) {
+            document.getElementById('editModal').style.display = 'block';
+        }
+
+        function deleteUser(id) {
+            document.getElementById('deleteModal').style.display = 'block';
+        }
+
+        function confirmUserDelete() {
+            closeModal('deleteModal');
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+            }
+        }
+
+        document.getElementById('editForm').onsubmit = function(e) {
+            e.preventDefault();
+            closeModal('editModal');
+        }
+
+        document.getElementById('addUserForm').onsubmit = function(e) {
+            e.preventDefault();
+            closeModal('addUserModal');
+        }
+
+        function showAlert(action) {
+            if (action === 'logout') {
+                document.getElementById('successLogout').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
