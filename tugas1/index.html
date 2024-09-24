@@ -212,6 +212,21 @@
         </div>
     </div>
 
+    <div id="addSuccessModal" class="modal">
+        <div class="modal-content">
+            <h2>User berhasil ditambahkan!</h2>
+            <button onclick="closeModal('addSuccessModal')">Close</button>
+        </div>
+    </div>
+
+    <div id="editSuccessModal" class="modal">
+        <div class="modal-content">
+            <h2>User berhasil di edit!</h2>
+            <button onclick="closeModal('editSuccessModal')">Close</button>
+        </div>
+    </div>
+    
+
     <div id="successModal" class="modal">
         <div class="modal-content">
             <h2>User berhasil di delete!</h2>
@@ -295,6 +310,18 @@
             e.preventDefault();
             closeModal('addUserModal');
         }
+
+        document.getElementById('addUserForm').onsubmit = function(e) {
+            e.preventDefault();
+            closeModal('addUserModal');
+            document.getElementById('addSuccessModal').style.display = 'block';
+        };
+
+        document.getElementById('editForm').onsubmit = function(e) {
+            e.preventDefault();
+            closeModal('editModal');
+            document.getElementById('editSuccessModal').style.display = 'block';
+        };
 
         function showAlert(action) {
             if (action === 'logout') {
