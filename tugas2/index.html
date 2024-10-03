@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Document</title>
+</head>
+
+<body class="bg-gray-400">
+  <div class="flex flex-row min-h-screen">
+
+    <aside class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      aria-label="Sidebar">
+      <div class="h-full px-3 py-4 overflow-y-auto bg-indigo-800">
+        <h1 class="p-4 font-thin text-xl text-white">Admin Panel</h1>
+        <ul class="space-y-2 font-thin">
+          <li>
+            <a href="#"
+              class="flex items-center p-2 text-indigo-900 rounded-lg dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-700 group">
+              <h2 class="ms-3 font-thin">Dashboard</h2>
+            </a>
+          </li>
+        </ul>
+        <ul class="space-y-2 font-thin">
+          <li>
+            <a href="#"
+              class="flex items-center p-2 text-indigo-900 rounded-lg dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-700 group">
+              <h2 class="ms-3 font-thin">Users</h2>
+            </a>
+          </li>
+        </ul>
+        <ul class="space-y-2 font-thin">
+          <li>
+            <a href="#"
+              class="flex items-center p-2 text-indigo-900 rounded-lg dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-700 group">
+              <h2 class="ms-3 font-thin">Settings</h2>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="flex flex-col flex-1 pl-40">
+
+      <!-- Header Start -->
+      <header class="bg-white shadow-black p-2">
+        <div class="flex justify-end text-white">
+          <button class="btn bg-indigo-600 rounded-lg hover:bg-indigo-900 font-thin p-2">Log Out</button>
+        </div>
+      </header>
+      <!-- END Header -->
+
+      <!-- Main -->
+      <main class="flex-grow bg-yellow-50 ml-24 p-4">
+        <div class="flex justify-between items-center">
+          <h1 class="font-thin text-xl">Daftar User</h1>
+          <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+            class="btn bg-green-400 rounded-lg hover:bg-green-700 p-2 font-thin">Tambah User</button>
+        </div>
+
+        <div class="relative overflow-x-auto mt-4">
+          <table class="min-w-full border-collapse border border-gray-200">
+            <thead>
+              <tr class="bg-gray-100 border-b">
+                <th scope="col" class="px-4 py-2 border border-gray-200 font-medium">#</th>
+                <th scope="col" class="px-4 py-2 border border-gray-200 font-medium">Nama</th>
+                <th scope="col" class="px-4 py-2 border border-gray-200 font-medium">NIM</th>
+                <th scope="col" class="px-4 py-2 border border-gray-200 font-medium">AKSI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white border-b font-thin">
+                <th scope="row" class="px-6 py-4 font-thin text-gray-900 border border-gray-200">1</th>
+                <td class="px-4 py-2 border border-gray-200">Ricky Primayuda Putra</td>
+                <td class="px-4 py-2 border border-gray-200">A11.2022.14486</td>
+                <td class="px-4 py-2 border border-gray-200">
+                  <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" class="btn bg-yellow-500 rounded-xl hover:bg-yellow-800 p-2 text-white">Edit</button>
+                  <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                    class="btn bg-red-500 rounded-xl hover:bg-red-800 p-2 text-white">Hapus</button>
+                </td>
+              </tr>
+              <tr class="bg-white border-b font-thin">
+                <th scope="row" class="px-4 py-2 font-thin text-gray-900 border border-gray-200">2</th>
+                <td class="px-4 py-2 border border-gray-200">Ricky Primayuda Putra</td>
+                <td class="px-4 py-2 border border-gray-200">A11.2022.14486</td>
+                <td class="px-4 py-2 border border-gray-200">
+                  <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" class="btn bg-yellow-500 rounded-xl hover:bg-yellow-800 p-2 text-white">Edit</button>
+                  <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                    class="btn bg-red-500 rounded-xl hover:bg-red-800 p-2 text-white">Hapus</button>
+                </td>
+              </tr>
+              <tr class="bg-white border-b font-thin">
+                <th scope="row" class="px-4 py-2 font-thin text-gray-900 border border-gray-200">3</th>
+                <td class="px-4 py-2 border border-gray-200">Ricky Primayuda Putra</td>
+                <td class="px-4 py-2 border border-gray-200">A11.2022.14486</td>
+                <td class="px-4 py-2 border border-gray-200">
+                  <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" class="btn bg-yellow-500 rounded-xl hover:bg-yellow-800 p-2 text-white">Edit</button>
+                  <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                    class="btn bg-red-500 rounded-xl hover:bg-red-800 p-2 text-white">Hapus</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="popup-modal" tabindex="-1"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <button type="button"
+                class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                data-modal-hide="popup-modal">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 14 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close modal</span>
+              </button>
+              <div class="p-4 md:p-5 text-center">
+                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah kamu yakin untuk menghapus
+                  user ini?</h3>
+                <button data-modal-hide="popup-modal" type="button"
+                  class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-thin rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                  Ya Saya yakin
+                </button>
+                <button data-modal-hide="popup-modal" type="button"
+                  class="py-2.5 px-5 ms-3 text-sm font-thin text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tidak</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="crud-modal" tabindex="-1" aria-hidden="true"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow ">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                <h3 class="text-lg font-thin text-gray-900">
+                  Tambahkan User
+                </h3>
+                <button type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                  data-modal-toggle="crud-modal">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <!-- Modal body -->
+              <form class="p-4 md:p-5">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                  <div class="col-span-2">
+                    <label for="name" class="block mb-2 text-sm font-thin text-gray-900">Nama</label>
+                    <input type="text" name="name" id="name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                      placeholder="Masukan Nama" required="">
+                  </div>
+                  <div class="col-span-2">
+                    <label for="name" class="block mb-2 text-sm font-thin text-gray-900 ">NIM</label>
+                    <input type="text" name="name" id="name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                      placeholder="Masukan NIM" required="">
+                  </div>
+                </div>
+                <button type="submit"
+                  class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-thin rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Tambahkan User Baru
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="edit-modal" tabindex="-1" aria-hidden="true"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow ">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                <h3 class="text-lg font-thin text-gray-900">
+                  Edit User
+                </h3>
+                <button type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                  data-modal-toggle="edit-modal">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <!-- Modal body -->
+              <form class="p-4 md:p-5">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                  <div class="col-span-2">
+                    <label for="name" class="block mb-2 text-sm font-thin text-gray-900">Nama</label>
+                    <input type="text" name="name" id="name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                      placeholder="Masukan Nama" required="">
+                  </div>
+                  <div class="col-span-2">
+                    <label for="name" class="block mb-2 text-sm font-thin text-gray-900 ">NIM</label>
+                    <input type="text" name="name" id="name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                      placeholder="Masukan NIM" required="">
+                  </div>
+                </div>
+                <button type="submit"
+                  class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-thin rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Edit User
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- END MAIN -->
+
+      <!-- Footer -->
+      <footer class="bg-indigo-900 text-white">
+        <div class="flex justify-center p-2">
+          <span class="font-thin hover-text-gray-500">Feel free to see and fork my website to clicked this-><a target="_blank" class="hover:text-gray-400" href="https://rickyprimay.me"> rickyprimay.me</a></span>
+        </div>
+      </footer>
+      <!-- END FOOTER -->
+    </div>
+
+  </div>
+</body>
+<script>
+  function editUser(id) {
+      document.getElementById('editModal').style.display = 'block';
+  }
+
+  function deleteUser(id) {
+      document.getElementById('deleteModal').style.display = 'block';
+  }
+
+  function confirmUserDelete() {
+      closeModal('deleteModal');
+      Swal.fire({
+          icon: 'success',
+          title: 'User berhasil di delete!',
+          showConfirmButton: false,
+          timer: 1500
+      });
+  }
+
+  function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+  }
+
+  function showModal(modalId) {
+      document.getElementById(modalId).style.display = 'block';
+  }
+
+  window.onclick = function(event) {
+      if (event.target.className === 'modal') {
+          event.target.style.display = 'none';
+      }
+  }
+
+  document.getElementById('editForm').onsubmit = function(e) {
+      e.preventDefault();
+      closeModal('editModal');
+      Swal.fire({
+          icon: 'success',
+          title: 'User berhasil di edit!',
+          showConfirmButton: false,
+          timer: 1500
+      });
+  }
+
+  document.getElementById('addUserForm').onsubmit = function(e) {
+      e.preventDefault();
+      closeModal('addUserModal');
+      Swal.fire({
+          icon: 'success',
+          title: 'User berhasil ditambahkan!',
+          showConfirmButton: false,
+          timer: 1500
+      });
+  }
+
+  function showAlert(action) {
+      if (action === 'logout') {
+          Swal.fire({
+              icon: 'success',
+              title: 'Anda berhasil logout',
+              showConfirmButton: false,
+              timer: 1500
+          });
+      }
+  }
+
+  document.querySelector('.text-white.bg-red-600').addEventListener('click', function() {
+      Swal.fire({
+          title: 'Apakah Anda yakin ingin menghapus user ini?',
+          text: "Anda tidak akan dapat mengembalikan user ini!",
+          icon: 'warning',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+      });
+  });
+</script>
+
+</html>
